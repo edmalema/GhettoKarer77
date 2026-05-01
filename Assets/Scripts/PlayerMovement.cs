@@ -35,10 +35,7 @@ public class PlayerMovement : MonoBehaviour
     float InputBuffer = 0f;
     bool JumpBuffer = false;
 
-    private PlayerInput playerInput;
-    private InputAction moveAction;
-    private InputAction jumpAction;
-    private InputAction LookAction;
+
 
     public bool AllowedToMove = true;
 
@@ -47,7 +44,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool Jump;
 
 
-
+    private PlayerInput playerInput;
+    private InputAction moveAction;
+    private InputAction jumpAction;
+    private InputAction LookAction;
 
     void Awake()
     {
