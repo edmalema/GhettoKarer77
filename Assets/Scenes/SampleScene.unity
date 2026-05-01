@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.601, z: 0}
+  m_LocalPosition: {x: 0, y: 1.388, z: -2.467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -557,9 +557,9 @@ GameObject:
   - component: {fileID: 1502548905}
   - component: {fileID: 1502548904}
   - component: {fileID: 1502548903}
-  - component: {fileID: 1502548902}
   - component: {fileID: 1502548907}
   - component: {fileID: 1502548908}
+  - component: {fileID: 1502548909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -567,33 +567,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1502548902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502548901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f72e51e3e8614146895d7fdcb298b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  playerCamera: {fileID: 330585546}
-  mouseSmoothTime: 0.03
-  cursorLock: 1
-  mouseSensitivity: 0.3
-  Speed: 6
-  moveSmoothTime: 0.3
-  gravity: -30
-  groundCheck: {fileID: 1759743644}
-  ground:
-    serializedVersion: 2
-    m_Bits: 8
-  BufferDuration: -0.2
-  jumpHeight: 6
-  AllowedToMove: 1
-  Jump: 1
 --- !u!136 &1502548903
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -683,7 +656,7 @@ Transform:
   m_GameObject: {fileID: 1502548901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4942, y: 1.18, z: -0.5683}
+  m_LocalPosition: {x: 0, y: 2.345, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -746,6 +719,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1502548909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502548901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26383d24097b4af4eb714f6dbf9de142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonMovement
+  Speed: 6
+  moveSmoothTime: 0.3
+  gravity: -30
+  groundCheck: {fileID: 0}
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpHeight: 6
+  DoubleJump: 0
+  camera: {fileID: 330585546}
+  Dash: 1
+  DashPower: 2
+  AttackSlide: 0
+  animator: {fileID: 0}
 --- !u!1 &1759743643
 GameObject:
   m_ObjectHideFlags: 0
