@@ -12,6 +12,9 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     float interactionDistance = 5f;
 
+    [SerializeField]
+    LayerMask interactableLayer;
+
     private IInteractable currentTargetedInteractable;
 
     public void Update()
@@ -25,9 +28,9 @@ public class Interactable : MonoBehaviour
 
     void UpdateCurrentInteractable()
     {
-        var ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, playerCamera.nearClipPlane));
+        var ray = new Ray(transform.position, transform.forward);
 
-        Physics.Raycast(ray, out var hit , interactionDistance);
+        Physics.Raycast(ray, out var hit , interactionDistance, interactableLayer);
 
         currentTargetedInteractable = hit.collider?.GetComponent<IInteractable>();
     }
