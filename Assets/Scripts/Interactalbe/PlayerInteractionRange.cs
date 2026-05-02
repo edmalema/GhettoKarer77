@@ -4,17 +4,21 @@ using UnityEngine.Events;
 
 public class PlayerInteractionRange : MonoBehaviour
 {
+    private void Start()
+    {
+
+    }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("contactr");
 
         if (other.GetComponentInParent<InteracionController>() == null) return;
 
         InteracionController InteractionObj = other.GetComponentInParent<InteracionController>();
 
-        InteractionObj.currentTargetedInteractable.Append(GetComponent<IInteractable>());
+
+        InteractionObj.currentTargetedInteractable.Add(GetComponent<IInteractable>());
         InteractionObj.UpdateInteractionText();
     }
         
@@ -22,7 +26,11 @@ public class PlayerInteractionRange : MonoBehaviour
     {
         if (other.GetComponentInParent<InteracionController>() == null) return;
 
+        InteracionController InteractionObj = other.GetComponentInParent<InteracionController>();
 
+
+        InteractionObj.currentTargetedInteractable.Remove(GetComponent<IInteractable>());
+        InteractionObj.UpdateInteractionText();
     }
 }
 

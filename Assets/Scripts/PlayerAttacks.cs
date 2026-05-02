@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Globalization;
 using Unity.Netcode;
 using UnityEngine;
@@ -214,7 +214,7 @@ public class PlayerAttacks : NetworkBehaviour
          GameObject HurtBoxObj = Instantiate(Attack, Position, Rotation, Origin);
          HitboxParameters(HurtBoxObj);
      }*/
-
+/*
     private void HitboxParameters(GameObject HurtBoxObj)
     {
 
@@ -372,3 +372,4 @@ public class PlayerAttacks : NetworkBehaviour
     }
 
 }
+*/

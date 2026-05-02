@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,23 +15,31 @@ public class InteracionController : MonoBehaviour
 
     [SerializeField]
     LayerMask interactableLayer;
-
-    public IInteractable[] currentTargetedInteractable;
+    public List<IInteractable> currentTargetedInteractable = new List<IInteractable> {};
 
     private int InteractableIndex = 0;
 
-    public void Update()
+    
+
+    private void OnScrollInteractables() 
     {
 
+        
+        var OldInteractableIndex = currentTargetedInteractable[0];
+        
+        currentTargetedInteractable.RemoveAt(InteractableIndex);
+        currentTargetedInteractable.Add(OldInteractableIndex);
 
+        UpdateInteractionText();
 
-        CheckForInteractionInput();
     }
+   
 
 
     public void UpdateInteractionText()
     {
-        if (currentTargetedInteractable[InteractableIndex] == null)
+        Debug.Log(currentTargetedInteractable.Count);
+        if (currentTargetedInteractable.Count <= 0)
         { 
             interactionText.text = string.Empty;
             return;
@@ -38,13 +47,15 @@ public class InteracionController : MonoBehaviour
         interactionText.text = currentTargetedInteractable[InteractableIndex].InteractMessage;
     }
 
-    void CheckForInteractionInput()
+    void OnInteractKey()
     {
         if (Keyboard.current.eKey.wasPressedThisFrame && currentTargetedInteractable[InteractableIndex] != null)
         {
             currentTargetedInteractable[InteractableIndex].Interact();
         }
     }
+
+
 
 }
 
