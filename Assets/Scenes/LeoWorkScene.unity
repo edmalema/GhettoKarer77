@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 125598333}
   - component: {fileID: 125598332}
   - component: {fileID: 125598336}
+  - component: {fileID: 125598337}
   m_Layer: 6
   m_Name: Shop
   m_TagString: Interactable
@@ -246,6 +247,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuyInteraction
   Value: -20
   objectInteractMessage: Press E to buy
+--- !u!114 &125598337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125598331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9929903736cd2741a6263abbaa5b5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractionRange
 --- !u!1 &130496183
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +648,7 @@ GameObject:
   - component: {fileID: 644739385}
   - component: {fileID: 644739384}
   - component: {fileID: 644739383}
+  - component: {fileID: 644739388}
   m_Layer: 6
   m_Name: Shop (1)
   m_TagString: Interactable
@@ -749,6 +763,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644739388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644739382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9929903736cd2741a6263abbaa5b5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractionRange
 --- !u!1 &1030297047
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,9 +787,9 @@ GameObject:
   - component: {fileID: 1030297051}
   - component: {fileID: 1030297050}
   - component: {fileID: 1030297049}
-  - component: {fileID: 1030297052}
+  - component: {fileID: 1030297053}
   m_Layer: 0
-  m_Name: InteractalbeRannge
+  m_Name: InteractalbeRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -864,19 +890,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030297047}
   m_Mesh: {fileID: 0}
---- !u!114 &1030297052
-MonoBehaviour:
+--- !u!54 &1030297053
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030297047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9929903736cd2741a6263abbaa5b5f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractionRange
-  tagFilter: Interactable
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1129157189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1624,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f858d969f80dbb4b97b660294fa7a3e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  m_EditorClassIdentifier: Assembly-CSharp::InteracionController
   playerCamera: {fileID: 1179290970}
   interactionText: {fileID: 1129157191}
   interactionDistance: 5

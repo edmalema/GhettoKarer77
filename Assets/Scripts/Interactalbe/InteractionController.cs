@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Interactable : MonoBehaviour
+public class InteracionController : MonoBehaviour
 {
     [SerializeField]
     Camera playerCamera;
@@ -15,17 +15,42 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     LayerMask interactableLayer;
 
-    private IInteractable currentTargetedInteractable;
+    public IInteractable[] currentTargetedInteractable;
+
+    private int InteractableIndex = 0;
 
     public void Update()
     {
-        UpdateCurrentInteractable();
 
-        UpdateInteractionText();
+
 
         CheckForInteractionInput();
     }
 
+
+    public void UpdateInteractionText()
+    {
+        if (currentTargetedInteractable[InteractableIndex] == null)
+        { 
+            interactionText.text = string.Empty;
+            return;
+        }
+        interactionText.text = currentTargetedInteractable[InteractableIndex].InteractMessage;
+    }
+
+    void CheckForInteractionInput()
+    {
+        if (Keyboard.current.eKey.wasPressedThisFrame && currentTargetedInteractable[InteractableIndex] != null)
+        {
+            currentTargetedInteractable[InteractableIndex].Interact();
+        }
+    }
+
+}
+
+
+
+/*
     void UpdateCurrentInteractable()
     {
         var ray = new Ray(transform.position, transform.forward);
@@ -34,24 +59,4 @@ public class Interactable : MonoBehaviour
 
         currentTargetedInteractable = hit.collider?.GetComponent<IInteractable>();
     }
-
-    void UpdateInteractionText()
-    {
-        if (currentTargetedInteractable == null)
-
-        { 
-            interactionText.text = string.Empty;
-            return;
-        }
-        interactionText.text = currentTargetedInteractable.InteractMessage;
-    }
-
-    void CheckForInteractionInput()
-    {
-        if (Keyboard.current.eKey.wasPressedThisFrame && currentTargetedInteractable != null)
-        {
-            currentTargetedInteractable.Interact();
-        }
-    }
-
-}
+*/
