@@ -4,10 +4,7 @@ using UnityEngine.Events;
 
 public class PlayerInteractionRange : MonoBehaviour
 {
-    private void Start()
-    {
-
-    }
+    
 
 
     private void OnTriggerEnter(Collider other)
